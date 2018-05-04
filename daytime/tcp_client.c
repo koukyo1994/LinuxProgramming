@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  if (ipaddr){
+  if (!ipaddr){
     fprintf(stderr, "%s : ip address not designated.\n", argv[0]);
     exit(1);
   } else if ((inet_pton(AF_INET, ipaddr, &server.sin_addr)) > 0) {
