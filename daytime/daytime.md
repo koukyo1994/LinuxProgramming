@@ -1,3 +1,8 @@
+## Daytime クライアント作成
+
+### C言語プログラム
+
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -68,3 +73,33 @@ int main(int argc, char *argv[]) {
   printf("%s\n", buf);
   exit(0);
 }
+
+```
+
+### 結果
+
+* IPアドレスを指定しない場合
+
+![No IP](/home/hidehisa/picture/tcp_no_ip.png)
+
+* IPアドレスパターンがおかしい場合
+
+![Invalid Pattern](/home/hidehisa/picture/tcp_invalid_pattern.png)
+
+* IPv4指定
+
+![ipv4](/home/hidehisa/picture/tcp_ipv4.png)
+
+* IPv6指定
+
+![ipv6](/home/hidehisa/picture/tcp_ipv6.png)
+
+* ポート指定
+
+![port](/home/hidehisa/picture/tcp_port_op.png)
+
+![p](/home/hidehisa/picture/tcp_p_op.png)
+
+* ヘルプ
+
+![help](/home/hidehisa/picture/tcp_help.png)
