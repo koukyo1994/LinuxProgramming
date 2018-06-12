@@ -47,6 +47,7 @@ int main() {
         pid = fork();
 
         if (pid == 0) {
+            close(sock0);
             memset(&inbuf, 0, sizeof(inbuf));
             recv(sock, inbuf, sizeof(inbuf), 0);
             printf("%s", inbuf);
@@ -60,9 +61,10 @@ int main() {
             );
             send(sock, obuf, (int) strlen(obuf), 0);
             close(sock);
-            _exit(0);
+            exit(0);
         } else {
             signal(SIGCHLD, sig_child);
+            close(sock);
         }
     }
 }
