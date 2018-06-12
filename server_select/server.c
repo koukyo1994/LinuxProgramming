@@ -65,7 +65,7 @@ int main() {
 
                 if (idx != FD_SETSIZE){
                     client_arr[idx] = sock;
-                    FD_SET(sock, &readset);
+                    FD_SET(sock, &readsetdset);
                 } else {
                     fprintf(stderr, "Que is full\n");
                 }
