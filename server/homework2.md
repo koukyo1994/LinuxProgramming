@@ -225,18 +225,18 @@ int main(int argc, char *argv[]) {
 
 * fork()を用いた場合
 
-![fork](/home/hidehisa/picture/server_fork.png)
+![FORK](/home/hidehisa/hobby/LinuxProgramming/server/img/server_fork.png)
 
 telnetを用いてデータの読み込み待ちにした状態でも、ブラウザからのリクエストに応えることができたため、並行サーバとして構成できていることがわかる。
 
 * pthread_create()を用いた場合
 
-![thread](/home/hidehisa/picture/server_thread.png)
+![THREAD](/home/hidehisa/hobby/LinuxProgramming/server/img/server_thread.png)
 
 fork()と同様にしてtelnetで読み込み街にした状態でも、ブラウザからのリクエストには応えることができた。
 
 * select()を用いた場合
 
-![select](/home/hidehisa/picture/server_select.png)
+![SELECT](/home/hidehisa/hobby/LinuxProgramming/server/img/server_select.png)
 
 この場合は、telnetを用いて読み込み待ちの状態にした際にブラウザからのリクエストは読み込み待ちになってしまった。この原因として考えられるのは、FD_ISSET()で読み込み準備が完了したsocketがある場合にはread()するようにしているが、read()先でtelnetから何も送信されてないため、待ち続けた状態になってしまい、また他のソケットの読み込み処理が前のソケットの読み込み処理が終わらない限り始まらないような書き方になってしまっているからであると考えられる。
