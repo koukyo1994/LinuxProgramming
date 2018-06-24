@@ -10,7 +10,7 @@
 #include <signal.h>
 #include <unistd.h>
 #include <pthread.h>
-
+#include <fcntl.h>
 
 void sig_child(int signo){
     int pid, status;
@@ -56,6 +56,7 @@ int main(int argc, char *argv[]) {
         exit(1);
     }
 
+    int ret, flag;
     int sock0, sock;
     struct sockaddr_in addr;
     struct sockaddr_in client;
@@ -63,6 +64,24 @@ int main(int argc, char *argv[]) {
 
     if ((sock0 = socket(AF_INET, SOCK_STREAM, 0)) == -1){
         perror("socket");
+        exit(1);
+    }
+
+    ret = fcntl(sock0, F_GETFL, 0);
+    if (ret == -1) {
+        perror("fcntl");
+        if (close(sock0) == -1) {
+            perror("close");
+        }
+        exit(1);
+    }
+    flag = ret | O_NONBLOCK;
+    ret = fcntl(sock0, F_SETFL, flag);
+    if (ret == -1) {
+        perror("fcntl");
+        if (close(sock0) == -1) {
+            perror("close");
+        }
         exit(1);
     }
 
