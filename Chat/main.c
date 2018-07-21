@@ -47,5 +47,13 @@ int main(int argc, char *argv) {
         member[i].fd = 0;
     }
 
+    printf("Press Ctrl + c to exit...\n");
+
+    while (1) {
+        len = sizeof(client);
+        sock = accept(sock0, (struct sockaddr *)&client_addr, &len);
+
+    }
+
     return 0;
 }
