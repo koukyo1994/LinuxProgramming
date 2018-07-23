@@ -1,3 +1,0 @@
-/home/hidehisa/hobby/LinuxProgramming/Chat/cmake-build-cmake/CMakeFiles/rebuild_cache.dir
-/home/hidehisa/hobby/LinuxProgramming/Chat/cmake-build-cmake/CMakeFiles/edit_cache.dir
-/home/hidehisa/hobby/LinuxProgramming/Chat/cmake-build-cmake/CMakeFiles/Chat.dir

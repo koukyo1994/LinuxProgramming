@@ -1,6 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
-project(Chat C)
+cmake_minimum_required(VERSION 3.1)
 
-set(CMAKE_C_STANDARD 11)
-
-add_executable(Chat main.c)
+add_subdirectory(server)
+add_subdirectory(client)
