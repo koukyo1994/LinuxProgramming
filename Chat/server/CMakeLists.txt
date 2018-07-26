@@ -3,5 +3,7 @@ project(Chat C)
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_FLAGS "-Wall")
+find_package(Threads)
 
 add_executable(Chat_server server.c)
+target_link_libraries(Chat_server ${CMAKE_THREAD_LIBS_INIT})

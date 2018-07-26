@@ -18,10 +18,10 @@
 #define VIOLET "\x1b[0;35m"
 #define LIGHT_BLUE "\x1b[0;36m"
 
-static int input_name(int fd);
-static void *send_msg(int *fd);
+static int input_name(int fd, char *hn);
+static void *send_msg(const int *fd);
 
-int main(int argc, char *argv[]){
+int main(int argc, char **argv){
     int sock;
     ssize_t n;
     char hn[64];
@@ -48,7 +48,11 @@ int main(int argc, char *argv[]){
     }
     printf("\x1b[2J"); //Clear Console
 
-    input_name(sock);
+    if (input_name(sock, hn) == 1){
+        fprintf(stderr, "Name identification error\n");
+        exit(1);
+    }
+    printf("Type what ever you want");
     if (read(sock, buffer, sizeof(buffer)) < 0){
         perror("read");
         exit(1);
@@ -56,7 +60,7 @@ int main(int argc, char *argv[]){
     buffer[strlen(buffer)-1] = '\0';
     printf("%s\n", buffer);
 
-    pthread_create(&tid, NULL, (void *)&send_msg, (void *)&sock);
+    pthread_create(&tid, NULL, (void *)&send_msg, (int *)sock);
     sprintf(leave, "%s left the room\a", hn);
     leave[strlen(leave)-1] = '\0';
 
@@ -74,6 +78,67 @@ int main(int argc, char *argv[]){
     return 0;
 }
 
-static int input_name(int fd){
+static int input_name(int fd, char *hn){
+  hn[0] = '\0';
+  printf("名前を入力してください\n");
+  if (fgets(hn, sizeof(hn), stdin) == NULL) {
+      fprintf(stderr, "Input you name\n");
+      close(fd);
+      return 1;
+  }
+  hn[strlen(hn)-1] = '\0';
+  printf("Your name is %s\n", hn);
+  write(fd, hn, sizeof(hn));
+    return 0;
+}
 
+static void *send_msg(const int *fd){
+    char send[BUF_SIZE], buffer[BUF_SIZE], color[16];
+    int color_no = 0;
+    static int i = 0;
+
+    sprintf(color, "%s", BLACK);
+    usleep(1000*300);
+    printf("!--Information\n"
+           " To get member list, input 'MEMBER'\n"
+           " To change message color, input 'COLOR'\n"
+           " To logout the room, input 'LOGOUT'\n");
+    while (1){
+        buffer[0] = '\0';
+        send[0] = '\0';
+        if (i++ == 0){
+            printf("input message: ");
+        }
+        fgets(buffer, sizeof(buffer), stdin);
+        buffer[strlen(buffer)-1] = '\0';
+        if (strcmp(buffer, "LOGOUT") == 0){
+            write(*fd, buffer, sizeof(buffer));
+            printf("Logout\n"
+                   "Press Ctrl + C\n");
+            break;
+        } else if (strcmp(buffer, "COLOR") == 0){
+            printf("!--Choose you favorite color\n"
+                   " 0: black (default)\n"
+                   " 1:%s red        %s\n"
+                   " 2:%s green      %s\n"
+                   " 3:%s yellow     %s\n"
+                   " 4:%s blue       %s\n"
+                   " 5:%s violet     %s\n"
+                   " 6:%s light blue %s\n"
+                   " --input the number of color\n",
+            RED, BLACK, GREEN, BLACK, YELLOW, BLACK,
+            BLUE, BLACK, VIOLET, BLACK, LIGHT_BLUE, BLACK);
+            color_no = fgetc(stdin) - 48;
+            if ((color_no < 0) || (color_no > 6)) {
+                printf("%s input number between 0 to 6!!%s\n", RED, BLACK);
+            } else {
+                sprintf(color, "\x1b[0;%dm", color_no+30);
+                printf("%s color changed.%s\n", color, BLACK);
+            }
+        } else {
+            sprintf(send, "%s%s%s", color, buffer, BLACK);
+            write(*fd, send, sizeof(send));
+        }
+    }
+    pthread_exit(NULL);
 }

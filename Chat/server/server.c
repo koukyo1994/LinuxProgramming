@@ -17,16 +17,16 @@ typedef struct {
     int no;
 } Mem;
 
-static void do_thread(Mem mem);
+Mem member[MAX_CLIENT];
+
+static void do_thread(Mem mem, int i);
 static void send_msg(char *buf);
 
-int main(int argc, char *argv) {
+int main(int argc, char **argv) {
     int i;
     int sock0;
 
     pthread_t client[MAX_CLIENT];
-    Mem member[MAX_CLIENT];
-
 
     struct sockaddr_in addr;
     struct sockaddr_in client_addr;
@@ -66,8 +66,8 @@ int main(int argc, char *argv) {
     return 0;
 }
 
-static void do_thread(Mem mem){
-    int i, n;
+static void do_thread(Mem mem, int i){
+    ssize_t n;
     char buffer[BUF_SIZE];
     pthread_detach(pthread_self());
 
@@ -83,7 +83,7 @@ static void do_thread(Mem mem){
     write(member[i].fd, buffer, sizeof(buffer));
 
     while (1){
-        while ((n = read(mem.fd, buffer, strlen(buffer)) > 0){
+        while (read(mem.fd, buffer, strlen(buffer)) > 0){
             if (strcmp(buffer, "LOGOUT") == 0){
                 sprintf(buffer, "%s(id: %d)が退室しました\n", mem.name, mem.fd);
                 send_msg(buffer);
