@@ -19,7 +19,7 @@ typedef struct {
 
 Mem member[MAX_CLIENT];
 
-static void do_thread(Mem mem, int i);
+static void do_thread(Mem mem);
 static void send_msg(char *buf);
 
 int main(int argc, char **argv) {
@@ -66,21 +66,21 @@ int main(int argc, char **argv) {
     return 0;
 }
 
-static void do_thread(Mem mem, int i){
+static void do_thread(Mem mem){
     ssize_t n;
     char buffer[BUF_SIZE];
     pthread_detach(pthread_self());
 
-    while ((n = read(member[i].fd, member[i].name, strlen(member[i].name)-1)) > 0){
-        member[i].name[n] = '\n';
-        printf("%s come\n", member[i].name);
+    while ((n = read(mem.fd, mem.name, strlen(mem.name)) > 0)) {
+        mem.name[n] = '\n';
+        printf("%s come\n", mem.name);
     }
 
     sprintf(buffer, "%s(id: %d)が参加しました\n", mem.name, mem.fd);
     send_msg(buffer);
 
     sprintf(buffer, "If you want to exit, please type 'LOGOUT'.\n");
-    write(member[i].fd, buffer, sizeof(buffer));
+    write(mem.fd, buffer, sizeof(buffer));
 
     while (1){
         while (read(mem.fd, buffer, strlen(buffer)) > 0){

@@ -52,7 +52,7 @@ int main(int argc, char **argv){
         fprintf(stderr, "Name identification error\n");
         exit(1);
     }
-    printf("Type what ever you want");
+
     if (read(sock, buffer, sizeof(buffer)) < 0){
         perror("read");
         exit(1);
@@ -60,7 +60,7 @@ int main(int argc, char **argv){
     buffer[strlen(buffer)-1] = '\0';
     printf("%s\n", buffer);
 
-    pthread_create(&tid, NULL, (void *)&send_msg, (int *)sock);
+    pthread_create(&tid, NULL, (void *)&send_msg, (void *)&sock);
     sprintf(leave, "%s left the room\a", hn);
     leave[strlen(leave)-1] = '\0';
 
@@ -86,10 +86,10 @@ static int input_name(int fd, char *hn){
       close(fd);
       return 1;
   }
-  hn[strlen(hn)-1] = '\0';
+  hn[strlen(hn)+2] = '\0';
   printf("Your name is %s\n", hn);
   write(fd, hn, sizeof(hn));
-    return 0;
+  return 0;
 }
 
 static void *send_msg(const int *fd){
@@ -106,10 +106,12 @@ static void *send_msg(const int *fd){
     while (1){
         buffer[0] = '\0';
         send[0] = '\0';
-        if (i++ == 0){
+        if (i == 0){
             printf("input message: ");
         }
+
         fgets(buffer, sizeof(buffer), stdin);
+        printf("debug\n");
         buffer[strlen(buffer)-1] = '\0';
         if (strcmp(buffer, "LOGOUT") == 0){
             write(*fd, buffer, sizeof(buffer));
