@@ -3,6 +3,7 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
       <config projectName="Project" targetName="Chat_client" />
+      <config projectName="Project" targetName="Chat_server2" />
       <config projectName="Project" targetName="Chat_server" />
     </generated>
   </component>
@@ -12,8 +13,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39fe6000-a396-40b2-b807-7461b84a2dfd" name="Default" comment="Has some bugs.">
+    <list default="true" id="39fe6000-a396-40b2-b807-7461b84a2dfd" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/server/server2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/client.c" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/server.c" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -29,11 +33,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:CMake" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="client.c" pinned="false" current-in-tab="true">
+      <file leaf-file-name="client.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/client.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1105">
-              <caret line="140" column="36" selection-start-line="140" selection-start-column="36" selection-end-line="140" selection-end-column="36" />
+            <state relative-caret-position="-1541">
+              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -53,17 +57,29 @@
       <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
+            <state relative-caret-position="68">
+              <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.c" pinned="false" current-in-tab="false">
+      <file leaf-file-name="server2.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/server2.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="395">
+              <caret line="151" selection-start-line="151" selection-end-line="151" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/server.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1666">
-              <caret line="98" column="32" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
+            <state relative-caret-position="-725">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -90,9 +106,10 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/client/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/server/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/server/server.c" />
+        <option value="$PROJECT_DIR$/server/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/client/client.c" />
+        <option value="$PROJECT_DIR$/server/server2.c" />
       </list>
     </option>
   </component>
@@ -106,9 +123,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="56" />
+    <option name="x" value="-1" />
     <option name="y" value="-14" />
-    <option name="width" value="1865" />
+    <option name="width" value="1922" />
     <option name="height" value="1095" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -170,14 +187,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Chat_client">
-    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="CMake" RUN_TARGET_PROJECT_NAME="Project" RUN_TARGET_NAME="Chat_client" EXPLICIT_BUILD_TARGET_NAME="all" />
+  <component name="RunManager" selected="Application.Chat_server2">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="CMake" RUN_TARGET_PROJECT_NAME="Project" RUN_TARGET_NAME="Chat_server2" EXPLICIT_BUILD_TARGET_NAME="all" />
     <configuration name="Chat_client" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project" TARGET_NAME="Chat_client" CONFIG_NAME="CMake" RUN_TARGET_PROJECT_NAME="Project" RUN_TARGET_NAME="Chat_client" />
-    <configuration name="Chat_server" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project" TARGET_NAME="Chat_server" CONFIG_NAME="CMake" RUN_TARGET_PROJECT_NAME="Project" RUN_TARGET_NAME="Chat_server" />
+    <configuration name="Chat_server" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project" TARGET_NAME="Chat_server" CONFIG_NAME="CMake" RUN_TARGET_PROJECT_NAME="Project" RUN_TARGET_NAME="Chat_server2" />
+    <configuration name="Chat_server2" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project" TARGET_NAME="Chat_server2" CONFIG_NAME="CMake" RUN_TARGET_PROJECT_NAME="Project" RUN_TARGET_NAME="Chat_server2" />
     <list>
       <item itemvalue="Application.Build All" />
       <item itemvalue="Application.Chat_client" />
       <item itemvalue="Application.Chat_server" />
+      <item itemvalue="Application.Chat_server2" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -197,6 +216,7 @@
       <workItem from="1532269259396" duration="6904000" />
       <workItem from="1532350405228" duration="4458000" />
       <workItem from="1532516939166" duration="13914000" />
+      <workItem from="1532914592607" duration="17066000" />
     </task>
     <task id="LOCAL-00001" summary="making simple chat application">
       <created>1532049506122</created>
@@ -240,11 +260,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532623284492</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="strlen と sizeof の使い分けには気をつけような！">
+      <created>1532829573577</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1532829573577</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45340000" />
+    <option name="totallyTimeSpent" value="62466000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -256,62 +283,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="56" y="-14" width="1865" height="1095" extended-state="6" />
+    <frame x="-1921" y="-1094" width="1922" height="1095" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.26330224" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25478724" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32952183" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49808007" weight="0.32952183" />
-      <window_info anchor="bottom" id="CMake" order="7" weight="0.32952183" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.5781915" weight="0.32952183" />
+      <window_info anchor="bottom" id="CMake" order="11" sideWeight="0.49893618" weight="0.32952183" />
       <window_info anchor="right" id="LuaJ" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50246847" side_tool="true" weight="0.32952183" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32848233" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49753153" visible="true" weight="0.32952183" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32952183" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49972573" weight="0.3991684" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.26330224" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32952183" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32952183" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32848233" />
-      <window_info anchor="bottom" id="CMake" order="7" weight="0.32952183" />
-      <window_info anchor="right" id="LuaJ" order="3" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49972573" weight="0.3991684" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32952183" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5002743" side_tool="true" weight="0.3991684" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49972573" weight="0.32952183" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-    </layout>
-    <layout-to-restore>
-      <window_info anchor="bottom" id="CMake" order="11" weight="0.32952183" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.26330224" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32952183" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5069149" side_tool="true" visible="true" weight="0.32952183" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32848233" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32952183" />
-      <window_info anchor="right" id="LuaJ" order="3" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49308512" visible="true" weight="0.32952183" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49840426" weight="0.32952183" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49972573" weight="0.3991684" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32952183" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32959184" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Messages" order="7" visible="true" weight="0.32952183" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-    </layout-to-restore>
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -325,9 +319,44 @@
     <MESSAGE value="Need More work on client.c" />
     <MESSAGE value="basic of the chat program finished." />
     <MESSAGE value="Has some bugs." />
-    <option name="LAST_COMMIT_MESSAGE" value="Has some bugs." />
+    <MESSAGE value="strlen と sizeof の使い分けには気をつけような！" />
+    <option name="LAST_COMMIT_MESSAGE" value="strlen と sizeof の使い分けには気をつけような！" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/client/client.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2380">
+          <caret line="140" column="36" selection-start-line="140" selection-start-column="36" selection-end-line="140" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1666">
+          <caret line="98" column="32" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/client.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1666">
@@ -615,25 +644,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
+        <state relative-caret-position="68">
+          <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/server.c">
+    <entry file="file://$PROJECT_DIR$/client/client.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1666">
-          <caret line="98" column="32" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
+        <state relative-caret-position="-1541">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/client.c">
+    <entry file="file://$PROJECT_DIR$/server/server2.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="140" column="36" selection-start-line="140" selection-start-column="36" selection-end-line="140" selection-end-column="36" />
+        <state relative-caret-position="395">
+          <caret line="151" selection-start-line="151" selection-end-line="151" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-725">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

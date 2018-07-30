@@ -7,7 +7,7 @@
 #include <netinet/in.h>
 #include <pthread.h>
 
-#define PORT 10080
+#define PORT 10081
 #define BUF_SIZE 1024
 
 #define BLACK "\x1b[0;30m"
@@ -22,8 +22,8 @@ static int input_name(int fd, char *hn);
 static void *send_msg(const int *fd);
 
 int main(int argc, char **argv){
+    int i;
     int sock;
-    ssize_t n;
     char hn[64];
     char buffer[BUF_SIZE], leave[BUF_SIZE];
     struct sockaddr_in server;
@@ -53,21 +53,25 @@ int main(int argc, char **argv){
         exit(1);
     }
 
-    if (read(sock, buffer, sizeof(buffer)) < 0){
-        perror("read");
-        exit(1);
+    for (i = 0; i < 2; i++){
+        //Get the first 2 messages
+        if (read(sock, buffer, sizeof(buffer)) < 0){
+            perror("read");
+            exit(1);
+        }
+        printf("%s\n", buffer);
     }
-    buffer[strlen(buffer)-1] = '\0';
-    printf("%s\n", buffer);
 
     pthread_create(&tid, NULL, (void *)&send_msg, (void *)&sock);
     sprintf(leave, "%s left the room\a", hn);
     leave[strlen(leave)-1] = '\0';
 
     while (1){
-        buffer[0] = '\0';
-        n = read(sock, buffer, sizeof(buffer));
-        buffer[n] = '\0';
+        if (read(sock, buffer, sizeof(buffer)) < 0) {
+            perror("read");
+            close(sock);
+            exit(1);
+        }
         if (strcmp(buffer, leave) == 0){
             break;
         }
@@ -79,16 +83,14 @@ int main(int argc, char **argv){
 }
 
 static int input_name(int fd, char *hn){
-  hn[0] = '\0';
   printf("名前を入力してください\n");
   if (fgets(hn, sizeof(hn), stdin) == NULL) {
       fprintf(stderr, "Input you name\n");
       close(fd);
       return 1;
   }
-  hn[strlen(hn)+2] = '\0';
-  printf("Your name is %s\n", hn);
-  write(fd, hn, sizeof(hn));
+  printf("Your name is %s", hn);
+  write(fd, hn, sizeof(hn)-1);
   return 0;
 }
 
@@ -104,15 +106,11 @@ static void *send_msg(const int *fd){
            " To change message color, input 'COLOR'\n"
            " To logout the room, input 'LOGOUT'\n");
     while (1){
-        buffer[0] = '\0';
-        send[0] = '\0';
         if (i == 0){
             printf("input message: ");
         }
 
-        fgets(buffer, sizeof(buffer), stdin);
-        printf("debug\n");
-        buffer[strlen(buffer)-1] = '\0';
+        fgets(buffer, BUF_SIZE, stdin);
         if (strcmp(buffer, "LOGOUT") == 0){
             write(*fd, buffer, sizeof(buffer));
             printf("Logout\n"
