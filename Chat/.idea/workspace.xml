@@ -14,12 +14,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39fe6000-a396-40b2-b807-7461b84a2dfd" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/client/client2.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server2.c" beforeDir="false" afterPath="$PROJECT_DIR$/server/server2.c" afterDir="false" />
-    </list>
+    <list default="true" id="39fe6000-a396-40b2-b807-7461b84a2dfd" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/cmake-build-cmake/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -66,7 +61,7 @@
       <file leaf-file-name="server2.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/server2.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
+            <state relative-caret-position="457">
               <caret line="349" column="58" selection-start-line="349" selection-start-column="58" selection-end-line="349" selection-end-column="58" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
@@ -136,7 +131,7 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1919" />
+    <option name="x" value="-1" />
     <option name="y" value="-14" />
     <option name="width" value="1922" />
     <option name="height" value="1095" />
@@ -231,7 +226,7 @@
       <workItem from="1532269259396" duration="6904000" />
       <workItem from="1532350405228" duration="4458000" />
       <workItem from="1532516939166" duration="13914000" />
-      <workItem from="1532914592607" duration="60180000" />
+      <workItem from="1532914592607" duration="60502000" />
     </task>
     <task id="LOCAL-00001" summary="making simple chat application">
       <created>1532049506122</created>
@@ -293,7 +288,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105580000" />
+    <option name="totallyTimeSpent" value="105902000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -305,8 +300,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1919" y="-14" width="1922" height="1095" extended-state="6" />
-    <editor active="true" />
+    <frame x="-1" y="-14" width="1922" height="1095" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.25478724" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32952183" />
@@ -315,7 +309,7 @@
       <window_info anchor="right" id="LuaJ" order="3" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010638" side_tool="true" weight="0.32952183" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32848233" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4925532" visible="true" weight="0.32952183" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4925532" weight="0.32952183" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49840426" weight="0.32952183" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -725,7 +719,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/server2.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
+        <state relative-caret-position="457">
           <caret line="349" column="58" selection-start-line="349" selection-start-column="58" selection-end-line="349" selection-end-column="58" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
