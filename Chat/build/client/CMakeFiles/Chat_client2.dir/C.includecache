@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/hidehisa/hobby/LinuxProgramming/Chat/client/client2.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+sys/socket.h
+-
+sys/types.h
+-
+pthread.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+signal.h
+-
+

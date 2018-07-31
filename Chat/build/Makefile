@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/hidehisa/langs/clion-2018.1.3/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/hidehisa/IntelliJ/clion-2018.1.6/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/hidehisa/langs/clion-2018.1.3/bin/cmake/bin/cmake -E remove -f
+RM = /home/hidehisa/IntelliJ/clion-2018.1.6/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/hidehisa/hobby/LinuxProgramming/Chat/build
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/hidehisa/langs/clion-2018.1.3/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/hidehisa/IntelliJ/clion-2018.1.6/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/hidehisa/langs/clion-2018.1.3/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/hidehisa/IntelliJ/clion-2018.1.6/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Chat_server2
+
+# Build rule for target.
+Chat_server2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Chat_server2
+.PHONY : Chat_server2
+
+# fast build rule for target.
+Chat_server2/fast:
+	$(MAKE) -f server/CMakeFiles/Chat_server2.dir/build.make server/CMakeFiles/Chat_server2.dir/build
+.PHONY : Chat_server2/fast
+
+#=============================================================================
 # Target rules for targets named Chat_server
 
 # Build rule for target.
@@ -122,6 +135,19 @@ Chat_server: cmake_check_build_system
 Chat_server/fast:
 	$(MAKE) -f server/CMakeFiles/Chat_server.dir/build.make server/CMakeFiles/Chat_server.dir/build
 .PHONY : Chat_server/fast
+
+#=============================================================================
+# Target rules for targets named Chat_client2
+
+# Build rule for target.
+Chat_client2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Chat_client2
+.PHONY : Chat_client2
+
+# fast build rule for target.
+Chat_client2/fast:
+	$(MAKE) -f client/CMakeFiles/Chat_client2.dir/build.make client/CMakeFiles/Chat_client2.dir/build
+.PHONY : Chat_client2/fast
 
 #=============================================================================
 # Target rules for targets named Chat_client
@@ -144,7 +170,9 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... Chat_server2"
 	@echo "... Chat_server"
+	@echo "... Chat_client2"
 	@echo "... Chat_client"
 .PHONY : help
 
@@ -159,4 +187,3 @@ help:
 cmake_check_build_system:
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
-

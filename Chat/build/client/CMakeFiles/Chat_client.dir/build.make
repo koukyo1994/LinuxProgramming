@@ -34,10 +34,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/hidehisa/langs/clion-2018.1.3/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/hidehisa/IntelliJ/clion-2018.1.6/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/hidehisa/langs/clion-2018.1.3/bin/cmake/bin/cmake -E remove -f
+RM = /home/hidehisa/IntelliJ/clion-2018.1.6/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -110,4 +110,3 @@ client/CMakeFiles/Chat_client.dir/clean:
 client/CMakeFiles/Chat_client.dir/depend:
 	cd /home/hidehisa/hobby/LinuxProgramming/Chat/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hidehisa/hobby/LinuxProgramming/Chat /home/hidehisa/hobby/LinuxProgramming/Chat/client /home/hidehisa/hobby/LinuxProgramming/Chat/build /home/hidehisa/hobby/LinuxProgramming/Chat/build/client /home/hidehisa/hobby/LinuxProgramming/Chat/build/client/CMakeFiles/Chat_client.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : client/CMakeFiles/Chat_client.dir/depend
-

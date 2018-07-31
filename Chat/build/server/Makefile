@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/hidehisa/langs/clion-2018.1.3/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/hidehisa/IntelliJ/clion-2018.1.6/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/hidehisa/langs/clion-2018.1.3/bin/cmake/bin/cmake -E remove -f
+RM = /home/hidehisa/IntelliJ/clion-2018.1.6/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/hidehisa/hobby/LinuxProgramming/Chat/build
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/hidehisa/langs/clion-2018.1.3/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/hidehisa/IntelliJ/clion-2018.1.6/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/hidehisa/langs/clion-2018.1.3/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/hidehisa/IntelliJ/clion-2018.1.6/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -109,6 +109,21 @@ preinstall/fast:
 depend:
 	cd /home/hidehisa/hobby/LinuxProgramming/Chat/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+# Convenience name for target.
+server/CMakeFiles/Chat_server2.dir/rule:
+	cd /home/hidehisa/hobby/LinuxProgramming/Chat/build && $(MAKE) -f CMakeFiles/Makefile2 server/CMakeFiles/Chat_server2.dir/rule
+.PHONY : server/CMakeFiles/Chat_server2.dir/rule
+
+# Convenience name for target.
+Chat_server2: server/CMakeFiles/Chat_server2.dir/rule
+
+.PHONY : Chat_server2
+
+# fast build rule for target.
+Chat_server2/fast:
+	cd /home/hidehisa/hobby/LinuxProgramming/Chat/build && $(MAKE) -f server/CMakeFiles/Chat_server2.dir/build.make server/CMakeFiles/Chat_server2.dir/build
+.PHONY : Chat_server2/fast
 
 # Convenience name for target.
 server/CMakeFiles/Chat_server.dir/rule:
@@ -152,6 +167,33 @@ server.c.s:
 	cd /home/hidehisa/hobby/LinuxProgramming/Chat/build && $(MAKE) -f server/CMakeFiles/Chat_server.dir/build.make server/CMakeFiles/Chat_server.dir/server.c.s
 .PHONY : server.c.s
 
+server2.o: server2.c.o
+
+.PHONY : server2.o
+
+# target to build an object file
+server2.c.o:
+	cd /home/hidehisa/hobby/LinuxProgramming/Chat/build && $(MAKE) -f server/CMakeFiles/Chat_server2.dir/build.make server/CMakeFiles/Chat_server2.dir/server2.c.o
+.PHONY : server2.c.o
+
+server2.i: server2.c.i
+
+.PHONY : server2.i
+
+# target to preprocess a source file
+server2.c.i:
+	cd /home/hidehisa/hobby/LinuxProgramming/Chat/build && $(MAKE) -f server/CMakeFiles/Chat_server2.dir/build.make server/CMakeFiles/Chat_server2.dir/server2.c.i
+.PHONY : server2.c.i
+
+server2.s: server2.c.s
+
+.PHONY : server2.s
+
+# target to generate assembly for a file
+server2.c.s:
+	cd /home/hidehisa/hobby/LinuxProgramming/Chat/build && $(MAKE) -f server/CMakeFiles/Chat_server2.dir/build.make server/CMakeFiles/Chat_server2.dir/server2.c.s
+.PHONY : server2.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -159,11 +201,15 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... Chat_server2"
 	@echo "... edit_cache"
 	@echo "... Chat_server"
 	@echo "... server.o"
 	@echo "... server.i"
 	@echo "... server.s"
+	@echo "... server2.o"
+	@echo "... server2.i"
+	@echo "... server2.s"
 .PHONY : help
 
 
@@ -177,4 +223,3 @@ help:
 cmake_check_build_system:
 	cd /home/hidehisa/hobby/LinuxProgramming/Chat/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
-

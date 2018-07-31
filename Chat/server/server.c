@@ -19,8 +19,8 @@ typedef struct {
 
 Mem member[MAX_CLIENT];
 
-static void do_thread(Mem mem);
-static void send_msg(char *buf);
+static void *do_thread(int i);
+static void send_msg(char *buf, ssize_t n);
 
 int main(int argc, char **argv) {
     int i;
@@ -59,46 +59,49 @@ int main(int argc, char **argv) {
 
         printf("client_fd: %d come\n", member[i].fd);
         member[i].no = i;
-        pthread_create(&client[i], NULL, (void *)do_thread, (void *)&member[i]);
+        if (pthread_create(&client[i], NULL, (void *)do_thread, (void *)i) != 0){
+            perror("pthread_create");
+            exit(1);
+        }
     }
 
     close(sock0);
     return 0;
 }
 
-static void do_thread(Mem mem){
-    ssize_t n;
+static void *do_thread(int i){
     char buffer[BUF_SIZE];
+    ssize_t n;
     pthread_detach(pthread_self());
 
-    while ((n = read(mem.fd, mem.name, strlen(mem.name)) > 0)) {
-        mem.name[n] = '\n';
-        printf("%s come\n", mem.name);
+    if (read(member[i].fd, member[i].name, strlen(member[i].name)) < 0) {
+        perror("read");
+        exit(1);
     }
-
-    sprintf(buffer, "%s(id: %d)が参加しました\n", mem.name, mem.fd);
-    send_msg(buffer);
+    member[i].name[strlen(member[i].name)-1] = '\0';
+    sprintf(buffer, "%s (id: %d)が参加しました\n", member[i].name, member[i].no);
+    send_msg(buffer, sizeof(buffer));
 
     sprintf(buffer, "If you want to exit, please type 'LOGOUT'.\n");
-    write(mem.fd, buffer, sizeof(buffer));
+    write(member[i].fd, buffer, strlen(buffer));
 
     while (1){
-        while (read(mem.fd, buffer, strlen(buffer)) > 0){
+        while ((n = read(member[i].fd, buffer, strlen(buffer))) > 0){
             if (strcmp(buffer, "LOGOUT") == 0){
-                sprintf(buffer, "%s(id: %d)が退室しました\n", mem.name, mem.fd);
-                send_msg(buffer);
+                sprintf(buffer, "%s(id: %d)が退室しました\n", member[i].name, member[i].fd);
+                send_msg(buffer, sizeof(buffer));
                 pthread_exit(0);
             }
-            send_msg(buffer);
+            send_msg(buffer, n);
         }
     }
 }
 
-static void send_msg(char *buf){
+static void send_msg(char *buf, ssize_t n){
     int i;
     for (i = 0; i < MAX_CLIENT; i++) {
         if (member[i].fd != 0){
-            write(member[i].fd, buf, sizeof(buf));
+            write(member[i].fd, buf, (unsigned int)n);
         }
     }
 }
