@@ -1,0 +1,55 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/hidehisa/hobby/LinuxProgramming/Chat/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_50446/fast"
+/usr/bin/make -f CMakeFiles/cmTC_50446.dir/build.make CMakeFiles/cmTC_50446.dir/build
+make[1]: ディレクトリ '/home/hidehisa/hobby/LinuxProgramming/Chat/build/CMakeFiles/CMakeTmp' に入ります
+Building C object CMakeFiles/cmTC_50446.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -Wall    -std=gnu11 -o CMakeFiles/cmTC_50446.dir/CheckSymbolExists.c.o   -c /home/hidehisa/hobby/LinuxProgramming/Chat/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_50446
+/home/hidehisa/IntelliJ/clion-2018.1.6/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_50446.dir/link.txt --verbose=1
+/usr/bin/cc -Wall     CMakeFiles/cmTC_50446.dir/CheckSymbolExists.c.o  -o cmTC_50446 
+CMakeFiles/cmTC_50446.dir/CheckSymbolExists.c.o: 関数 `main' 内:
+CheckSymbolExists.c:(.text+0x16): `pthread_create' に対する定義されていない参照です
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_50446.dir/build.make:97: ターゲット 'cmTC_50446' のレシピで失敗しました
+make[1]: *** [cmTC_50446] エラー 1
+make[1]: ディレクトリ '/home/hidehisa/hobby/LinuxProgramming/Chat/build/CMakeFiles/CMakeTmp' から出ます
+Makefile:126: ターゲット 'cmTC_50446/fast' のレシピで失敗しました
+make: *** [cmTC_50446/fast] エラー 2
+
+File /home/hidehisa/hobby/LinuxProgramming/Chat/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/hidehisa/hobby/LinuxProgramming/Chat/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_11aee/fast"
+/usr/bin/make -f CMakeFiles/cmTC_11aee.dir/build.make CMakeFiles/cmTC_11aee.dir/build
+make[1]: ディレクトリ '/home/hidehisa/hobby/LinuxProgramming/Chat/build/CMakeFiles/CMakeTmp' に入ります
+Building C object CMakeFiles/cmTC_11aee.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -Wall -DCHECK_FUNCTION_EXISTS=pthread_create   -std=gnu11 -o CMakeFiles/cmTC_11aee.dir/CheckFunctionExists.c.o   -c /home/hidehisa/IntelliJ/clion-2018.1.6/bin/cmake/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_11aee
+/home/hidehisa/IntelliJ/clion-2018.1.6/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_11aee.dir/link.txt --verbose=1
+/usr/bin/cc -Wall -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_11aee.dir/CheckFunctionExists.c.o  -o cmTC_11aee -lpthreads 
+/usr/bin/ld: -lpthreads が見つかりません
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_11aee.dir/build.make:97: ターゲット 'cmTC_11aee' のレシピで失敗しました
+make[1]: *** [cmTC_11aee] エラー 1
+make[1]: ディレクトリ '/home/hidehisa/hobby/LinuxProgramming/Chat/build/CMakeFiles/CMakeTmp' から出ます
+Makefile:126: ターゲット 'cmTC_11aee/fast' のレシピで失敗しました
+make: *** [cmTC_11aee/fast] エラー 2
+
+
