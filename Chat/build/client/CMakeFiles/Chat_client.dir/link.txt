@@ -1,0 +1,1 @@
+/usr/bin/cc -Wall -g   CMakeFiles/Chat_client.dir/client.c.o  -o Chat_client -lpthread 
